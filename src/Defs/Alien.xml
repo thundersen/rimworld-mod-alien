@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <IncidentDef>
+        <defName>THU_VisitorIncident</defName>
+        <label>visitor</label>
+        <targetTypes>
+            <li>MapPlayerHome</li>
+        </targetTypes>
+        <workerClass>TheVisitor.IncidentWorker_TheVisitor</workerClass>
+        <category>AllyArrival</category>
+        <baseChance>100</baseChance>
+        <earliestDay>1</earliestDay>
+    </IncidentDef>
+
+    <PawnKindDef>
+        <defName>THU_TheVisitor</defName>
+        <label>our special guest</label>
+        <race>Human</race>
+        <combatPower>25</combatPower>
+        <baseRecruitDifficulty>0.9</baseRecruitDifficulty>
+        <backstoryCategory>Civil</backstoryCategory>
+        <defaultFactionType>Spacer</defaultFactionType>
+        <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+        <forceNormalGearQuality>true</forceNormalGearQuality>
+        <isFighter>false</isFighter>
+        <chemicalAddictionChance>0.08</chemicalAddictionChance>
+        <gearHealthRange>
+            <min>0.4</min>
+            <max>1.4</max>
+        </gearHealthRange>
+        <apparelMoney>
+            <min>0</min>
+            <max>1000</max>
+        </apparelMoney>
+        <apparelTags>
+            <li>Spacer</li>
+        </apparelTags>
+        <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+        <apparelAllowHeadwearChance>0.5</apparelAllowHeadwearChance>
+    </PawnKindDef>
+
+</Defs>
