@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <HediffDef Name="InfectionBase" Abstract="True">
+        <hediffClass>HediffWithComps</hediffClass>
+        <defaultLabelColor>(0.8, 0.8, 0.35)</defaultLabelColor>
+        <initialSeverity>0.001</initialSeverity>
+        <comps>
+            <li Class="HediffCompProperties_Discoverable">
+                <sendLetterWhenDiscovered>true</sendLetterWhenDiscovered>
+            </li>
+        </comps>
+    </HediffDef>
+    
+    <HediffDef ParentName="InfectionBase">
+        <defName>THU_FaceHugged</defName>
+        <hediffClass>Alien.HediffWithComps_FaceHugged</hediffClass>
+        <!--<hediffClass>HediffWithComps</hediffClass>-->
+        <minSeverity>0.001</minSeverity>
+        <maxSeverity>1</maxSeverity>
+        <taleOnVisible>IllnessRevealed</taleOnVisible>
+        <comps>
+            <li Class="HediffCompProperties_SeverityPerDay">
+                <severityPerDay>24</severityPerDay>
+            </li>
+        </comps>
+
+        <label>facehugger</label>
+        <scenarioCanAdd>true</scenarioCanAdd>
+        <tendable>false</tendable>
+
+        <stages>
+            <li>
+                <label>hugging</label>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <offset>-1.0</offset>
+                    </li>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-0.1</offset>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <label>terminal</label>
+                <minSeverity>1</minSeverity>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>-1.0</offset>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+    </HediffDef>
+</Defs>

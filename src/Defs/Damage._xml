@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <!--
+    <DamageDef Name="THU_FacehuggerAffliction" ParentName="LocalInjuryBase">
+        <defName>THU_FacehuggerAffliction</defName>
+        <label>facehugger</label>
+        <externalViolence>true</externalViolence>
+        <deathMessage>{0}'s chest burst open and out came a terrifying insectlike creature.</deathMessage>
+        <hediff>THU_Facehugger</hediff>
+        <hediffSolid>THU_Facehugger</hediffSolid>
+        <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+        <impactSoundType>Slice</impactSoundType>
+        <armorCategory>Sharp</armorCategory>
+    </DamageDef>
+    -->
+</Defs>
