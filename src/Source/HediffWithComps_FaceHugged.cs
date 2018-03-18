@@ -14,12 +14,10 @@ namespace Alien
             if (pawn.def.race.Animal == false)
             {
                 var corpse = pawn.Corpse;
-                var faction = FactionUtility.DefaultFactionFrom(FactionDef.Named("BorgCollective"));
-                var chestburster = PawnGenerator.GeneratePawn(PawnKindDef.Named("BorgDrone3"), faction);
+                var faction = FactionUtility.DefaultFactionFrom(FactionDef.Named("THU_Xenomorph"));
+                var chestburster = PawnGenerator.GeneratePawn(PawnKindDef.Named("THU_XenomorphDrone"), faction);
                 chestburster.Position = corpse.Position;
                 chestburster.SpawnSetup(corpse.Map, false);
-
-                corpse?.Destroy();
             }
             else
             {

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <FactionDef Name="THU_HiddenFaction" Abstract="True">
+        <requiredCountAtGameStart>1</requiredCountAtGameStart>
+        <raidCommonalityFromPointsCurve>
+            <points>
+                <li>(0, 0)</li>
+            </points>
+        </raidCommonalityFromPointsCurve>
+        <humanlikeFaction>false</humanlikeFaction>
+        <hidden>true</hidden>
+        <autoFlee>false</autoFlee>
+        <canUseAvoidGrid>true</canUseAvoidGrid>
+        <techLevel>Animal</techLevel>
+        <startingGoodwill>
+            <min>-100</min>
+            <max>-100</max>
+        </startingGoodwill>
+        <mustStartOneEnemy>true</mustStartOneEnemy>
+        <naturalColonyGoodwill>
+            <min>-100</min>
+            <max>-100</max>
+        </naturalColonyGoodwill>
+        <homeIconPath>World/WorldObjects/DefaultFactionBase</homeIconPath>
+        <allowedArrivalTemperatureRange>
+            <min>-255</min>
+            <max>255</max>
+        </allowedArrivalTemperatureRange>
+    </FactionDef>
+
+    <FactionDef ParentName="THU_HiddenFaction">
+        <defName>THU_Xenomorph</defName>
+        <label>Xenomorph</label>
+        <description>"You still don't understand what you're dealing with, do you? The perfect organism. Its structural perfection is matched only by its hostility." ―Ash </description>
+        <pawnsPlural>Xenomorphs</pawnsPlural>
+        <fixedName>Unknown</fixedName>
+        <pawnGroupMakers>
+            <li><kindDef>Normal</kindDef>
+                <options>
+                    <THU_XenomorphDrone>100</THU_XenomorphDrone>
+                </options>
+            </li>
+        </pawnGroupMakers>
+    </FactionDef>
+</Defs>

@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-    <!--
-    <PawnKindDef Name="THU_Facehugger" Abstract="True">
-        <bodyGraphicData>
-            <shaderType>Cutout</shaderType>
-        </bodyGraphicData>
-        <dessicatedBodyGraphicData>
-            <shaderType>Cutout</shaderType>
-        </dessicatedBodyGraphicData>
-    </PawnKindDef>
--->
     <PawnKindDef>
         <defName>THU_Facehugger</defName>
         <label>Facehugger</label>
