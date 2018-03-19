@@ -9,21 +9,28 @@ namespace Alien
         {
             base.Notify_PawnDied();
             
-            Log.Message("HE DEEEEEED...");
-
-            if (pawn.def.race.Animal == false)
-            {
-                var corpse = pawn.Corpse;
-                var faction = FactionUtility.DefaultFactionFrom(FactionDef.Named("THU_Xenomorph"));
-                var chestburster = PawnGenerator.GeneratePawn(PawnKindDef.Named("THU_XenomorphDrone"), faction);
-                chestburster.Position = corpse.Position;
-                chestburster.SpawnSetup(corpse.Map, false);
-            }
-            else
-            {
-                Messages.Message("an animal has succumbed to nanite infection, and have been deemed inappropriate for assimilation. The nanites have consumed and destroyed the corpse.", MessageTypeDefOf.NeutralEvent);
-                pawn.Corpse.Destroy();
-            }
+            SpawnChestburster();
         }
-    }
+
+        private void SpawnChestburster()
+        {
+            var chestburster = CreateChestburster();
+            chestburster.Position = pawn.Corpse.Position;
+            chestburster.SpawnSetup(pawn.Corpse.Map, false);
+        }
+
+        // for new every host creates a drone. later create different xenos for animals
+        private Pawn CreateChestburster()
+        {
+            var faction = FactionUtility.DefaultFactionFrom(FactionDef.Named("THU_Xenomorph"));
+            var pawnKindDef = PawnKindDef.Named("THU_XenomorphDrone");
+            var request = new PawnGenerationRequest(pawnKindDef, newborn: true, faction: faction);
+
+            var chestburster = PawnGenerator.GeneratePawn(request);
+            
+            Find.LetterStack.ReceiveLetter("Chestburster!", "THU_Chestburster_SuccessMessage".Translate(pawn?.Label, pawn?.gender.GetPossessive()), LetterDefOf.ThreatBig, chestburster);
+            
+            return chestburster;
+        }
+    }    
 }

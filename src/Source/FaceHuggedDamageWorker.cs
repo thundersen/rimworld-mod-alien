@@ -1,4 +1,5 @@
-﻿using Verse;
+﻿using RimWorld;
+using Verse;
 
 namespace Alien
 {
@@ -6,15 +7,24 @@ namespace Alien
     {
         public override DamageResult Apply(DamageInfo dinfo, Thing victim)
         {
+            if (Rand.Value <= .5f)
+                HugFace(dinfo, victim);
+
+            return base.Apply(dinfo, victim);
+        }
+
+        private static void HugFace(DamageInfo dinfo, Thing victim)
+        {
             var hitPawn = victim as Pawn;
 
             var hediff = HediffMaker.MakeHediff(HediffDef.Named("THU_FaceHugged"), hitPawn);
-            
+
             hitPawn?.health?.AddHediff(hediff);
 
             RemoveFacehugger(dinfo.Instigator);
-
-            return base.Apply(dinfo, victim);
+            
+            Messages.Message("THU_FaceHugged_SuccessMessage".Translate(hitPawn?.Label),
+                MessageTypeDefOf.NegativeEvent);
         }
 
         private static void RemoveFacehugger(Thing facehugger)
