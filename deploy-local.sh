@@ -21,6 +21,7 @@ rsync -av --progress src/* "${TARGET}"  \
 mkdir ${TARGET}/Assemblies
 
 cp -v src/Assemblies/${PROJECT_NAME}.dll ${TARGET}/Assemblies
+cp -v src/Assemblies/0Harmony.dll ${TARGET}/Assemblies
 
 if [ ${DEPLOY_HOT_RELOADER} = true ] ; then
     cp -v src/Assemblies/0Reloader.dll ${TARGET}/Assemblies

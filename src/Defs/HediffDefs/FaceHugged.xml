@@ -14,8 +14,7 @@
     
     <HediffDef ParentName="InfectionBase">
         <defName>THU_FaceHugged</defName>
-        <hediffClass>Alien.HediffWithComps_FaceHugged</hediffClass>
-        <!--<hediffClass>HediffWithComps</hediffClass>-->
+        <hediffClass>Alien.FaceHuggedHediff</hediffClass>
         <minSeverity>0.001</minSeverity>
         <maxSeverity>1</maxSeverity>
         <taleOnVisible>IllnessRevealed</taleOnVisible>

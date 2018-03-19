@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <DamageDef ParentName="LocalInjuryBase">
+        <defName>THU_FaceHugged</defName>
+        <label>facehugger</label>
+        <externalViolence>true</externalViolence>
+        <deathMessage>{0} died from a facehugging.</deathMessage>
+        <hediff>Cut</hediff>
+        <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+        <impactSoundType>Slice</impactSoundType>
+        <armorCategory>Sharp</armorCategory>
+        <workerClass>Alien.FaceHuggedDamageWorker</workerClass>
+    </DamageDef>
+
+</Defs>

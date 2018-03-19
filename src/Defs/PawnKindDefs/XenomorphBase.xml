@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <PawnKindDef Name="THU_XenomorphBase" Abstract="True">
+        <defaultFactionType>THU_Xenomorph</defaultFactionType>
+    </PawnKindDef>
+</Defs>

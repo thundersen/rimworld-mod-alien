@@ -3,7 +3,7 @@ using Verse;
 
 namespace Alien
 {
-    class HediffWithComps_FaceHugged : HediffWithComps
+    class FaceHuggedHediff : HediffWithComps
     {
         public override void Notify_PawnDied()
         {
