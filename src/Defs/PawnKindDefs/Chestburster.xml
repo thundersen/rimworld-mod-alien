@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <PawnKindDef ParentName="THU_XenomorphBase">
+        <defName>THU_Chestburster</defName>
+        <label>Chestburster</label>
+        <race>THU_Chestburster</race>
+        <combatPower>66</combatPower>
+        <aiAvoidCover>true</aiAvoidCover>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Chestburster</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <drawSize>1</drawSize>
+                    <color>(200,200,100)</color>
+                    <shadowData>
+                        <volume>(0.4, 0.4, 0.3)</volume>
+                        <offset>(0,0,-0.2)</offset>
+                    </shadowData>
+                </bodyGraphicData>
+                <!-- throws an error. WHY!?
+                <dessicatedBodyGraphicData>
+                    <texPath>Chestburster_dessicated</texPath>
+                    <drawSize>1</drawSize>
+                </dessicatedBodyGraphicData>-->
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+</Defs>

@@ -23,7 +23,7 @@ namespace Alien
         private Pawn CreateChestburster()
         {
             var faction = FactionUtility.DefaultFactionFrom(FactionDef.Named("THU_Xenomorph"));
-            var pawnKindDef = PawnKindDef.Named("THU_XenomorphDrone");
+            var pawnKindDef = PawnKindDef.Named("THU_Chestburster");
             var request = new PawnGenerationRequest(pawnKindDef, newborn: true, faction: faction);
 
             var chestburster = PawnGenerator.GeneratePawn(request);

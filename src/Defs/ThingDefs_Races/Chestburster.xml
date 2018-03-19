@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="THU_XenomorphRaceBase">
+        <defName>THU_Chestburster</defName>
+        <label>Chestburster</label>
+        <description>Chestbursters are planted into host bodies by facehuggers. After a few days they kill the host by bursting through its chest and will seek a hiding place where they rapidly grow into a fully developed Xenomorph.
+        </description>
+        <statBases>
+            <MoveSpeed>8</MoveSpeed>
+            <ArmorRating_Blunt>0.02</ArmorRating_Blunt>
+            <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>Verb_MeleeAttack</verbClass>
+                <defaultCooldownTime>2</defaultCooldownTime>
+                <meleeDamageBaseAmount>30</meleeDamageBaseAmount>
+                <meleeDamageDef>Bite</meleeDamageDef>
+                <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+            </li>
+        </verbs>
+        <race>
+            <baseBodySize>1.0</baseBodySize>
+            <baseHealthScale>1.2</baseHealthScale>
+        </race>
+    </ThingDef>
+</Defs>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="THU_XenomorphRaceBase">
+        <defName>THU_Facehugger</defName>
+        <label>facehugger</label>
+        <description>Little xenomorph rascals that embrace faces to spawn new life.</description>
+        <statBases>
+            <MoveSpeed>6.0</MoveSpeed>
+            <ArmorRating_Blunt>0.02</ArmorRating_Blunt>
+            <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+        </statBases>
+        <verbs>
+            <!-- cut with leg-->
+            <!-- cut with tail-->
+            <!-- choke with tail?-->
+            <li>
+                <verbClass>Verb_MeleeAttack</verbClass>
+                <defaultCooldownTime>1.5</defaultCooldownTime>
+                <meleeDamageBaseAmount>5</meleeDamageBaseAmount>
+                <meleeDamageDef>THU_FaceHugged</meleeDamageDef>
+                <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+                <surpriseAttack>
+                    <extraMeleeDamages>
+                        <li>
+                            <def>Stun</def>
+                            <amount>50</amount>
+                        </li>
+                    </extraMeleeDamages>
+                </surpriseAttack>
+            </li>
+            <!--
+            <li>
+                <verbClass>Verb_MeleeAttack</verbClass>
+                <defaultCooldownTime>2.0</defaultCooldownTime>
+                <meleeDamageBaseAmount>20</meleeDamageBaseAmount>
+                <meleeDamageDef>Cut</meleeDamageDef>
+                <linkedBodyPartsGroup>THU_XenomorphTail</linkedBodyPartsGroup>
+            </li>
+            -->
+        </verbs>
+        <race>
+            <baseBodySize>0.5</baseBodySize>
+            <baseHealthScale>0.5</baseHealthScale>
+
+            <!-- TODO -->
+            <body>THU_Xenomorph</body>
+            <lifeExpectancy>10</lifeExpectancy>
+
+            <!-- TODO: lifeStageAges with higher pitched sounds 
+            <lifeStageAges>
+                <li>
+                    <def>AnimalAdult</def>
+                    <minAge>0</minAge>
+                    <soundWounded>THU_Xenomorph_Pain</soundWounded>
+                    <soundDeath>THU_Xenomorph_Death</soundDeath>
+                    <soundCall>THU_Xenomorph_Call</soundCall>
+                    <soundAngry>THU_Xenomorph_Angry</soundAngry>
+                </li>
+            </lifeStageAges> -->
+        </race>
+
+    </ThingDef>
+</Defs>
