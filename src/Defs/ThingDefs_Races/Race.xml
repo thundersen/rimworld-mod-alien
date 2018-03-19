@@ -46,7 +46,8 @@
 	
 	
 	<!-- DRONE -->
-  	<ThingDef ParentName="THU_XenomorphRaceBase">
+
+	<ThingDef ParentName="THU_XenomorphRaceBase">
 		<defName>THU_XenomorphDrone</defName>
 		<label>Xenomorph Drone</label>
 		<description>Drones are the backbone of the Xenomorph hive. Their bodies are much stronger than those of their humanlike hosts. The first Xenomorph encountered on record was born in 2122 on the commercial towing vessel Nostromo, property of the Weyland-Yutani Corporation.</description>
@@ -56,44 +57,44 @@
 			<ArmorRating_Sharp>0.02</ArmorRating_Sharp>
 		</statBases>
 		<verbs>
-		  <li>
-			<verbClass>Verb_MeleeAttack</verbClass>
-			<defaultCooldownTime>3.5</defaultCooldownTime>
-			<meleeDamageBaseAmount>45</meleeDamageBaseAmount>
-			<meleeDamageDef>Stab</meleeDamageDef>
-			<linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
-			<surpriseAttack>
-			 <extraMeleeDamages>
-				<li>
-				  <def>Stun</def>
-				  <amount>50</amount>
-				</li>
-			  </extraMeleeDamages>
-			</surpriseAttack>
-		  </li>
-		  <li>
-			<verbClass>Verb_MeleeAttack</verbClass>
-			<defaultCooldownTime>2.0</defaultCooldownTime>
-			<meleeDamageBaseAmount>40</meleeDamageBaseAmount>
-			<meleeDamageDef>Cut</meleeDamageDef>
-			<linkedBodyPartsGroup>THU_XenomorphTail</linkedBodyPartsGroup>
-		  </li>
-		  <li>
-			<verbClass>Verb_MeleeAttack</verbClass>
-			<defaultCooldownTime>1.0</defaultCooldownTime>
-			<meleeDamageBaseAmount>10</meleeDamageBaseAmount>
-			<meleeDamageDef>Cut</meleeDamageDef>
-			<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
-		  </li>
-		  <li>
-			<verbClass>Verb_MeleeAttack</verbClass>
-			<defaultCooldownTime>1.0</defaultCooldownTime>
-			<meleeDamageBaseAmount>10</meleeDamageBaseAmount>
-			<meleeDamageDef>Cut</meleeDamageDef>
-			<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
-		  </li>
+			<li>
+				<verbClass>Verb_MeleeAttack</verbClass>
+				<defaultCooldownTime>3.5</defaultCooldownTime>
+				<meleeDamageBaseAmount>45</meleeDamageBaseAmount>
+				<meleeDamageDef>Stab</meleeDamageDef>
+				<linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>50</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<verbClass>Verb_MeleeAttack</verbClass>
+				<defaultCooldownTime>2.0</defaultCooldownTime>
+				<meleeDamageBaseAmount>40</meleeDamageBaseAmount>
+				<meleeDamageDef>Cut</meleeDamageDef>
+				<linkedBodyPartsGroup>THU_XenomorphTail</linkedBodyPartsGroup>
+			</li>
+			<li>
+				<verbClass>Verb_MeleeAttack</verbClass>
+				<defaultCooldownTime>1.0</defaultCooldownTime>
+				<meleeDamageBaseAmount>10</meleeDamageBaseAmount>
+				<meleeDamageDef>Cut</meleeDamageDef>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+			</li>
+			<li>
+				<verbClass>Verb_MeleeAttack</verbClass>
+				<defaultCooldownTime>1.0</defaultCooldownTime>
+				<meleeDamageBaseAmount>10</meleeDamageBaseAmount>
+				<meleeDamageDef>Cut</meleeDamageDef>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+			</li>
 		</verbs>
-		<race>	
+		<race>
 			<baseBodySize>2.0</baseBodySize>
 			<baseHealthScale>1.2</baseHealthScale>
 		</race>

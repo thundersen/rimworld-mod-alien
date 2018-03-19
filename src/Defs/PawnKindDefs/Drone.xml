@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Defs>
- 
+<Defs>	
 	<PawnKindDef Name="THU_XenomorphBase" Abstract="True">
 		<defaultFactionType>THU_Xenomorph</defaultFactionType>
 	</PawnKindDef>
@@ -35,5 +34,4 @@
 			</li>
 		</lifeStages>
 	</PawnKindDef>
-
 </Defs>
