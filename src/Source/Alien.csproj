@@ -51,9 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap.cs" />
-    <Compile Include="FaceHuggedDamageWorker.cs"/>
-    <Compile Include="FaceHuggedHediff.cs"/>
-    <Compile Include="HediffDefOf.cs"/>
+      <Compile Include="ChestbursterPawn.cs"/>
+      <Compile Include="FaceHuggedDamageWorker.cs"/>
+      <Compile Include="FaceHuggedHediff.cs"/>
+      <Compile Include="HediffDefOf.cs"/>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">

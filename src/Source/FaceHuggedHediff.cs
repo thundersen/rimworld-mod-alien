@@ -19,14 +19,13 @@ namespace Alien
             chestburster.SpawnSetup(pawn.Corpse.Map, false);
         }
 
-        // for new every host creates a drone. later create different xenos for animals
         private Pawn CreateChestburster()
         {
             var faction = FactionUtility.DefaultFactionFrom(FactionDef.Named("THU_Xenomorph"));
             var pawnKindDef = PawnKindDef.Named("THU_Chestburster");
             var request = new PawnGenerationRequest(pawnKindDef, newborn: true, faction: faction);
 
-            var chestburster = PawnGenerator.GeneratePawn(request);
+            var chestburster = PawnGenerator.GeneratePawn(request) as ChestbursterPawn;
             
             Find.LetterStack.ReceiveLetter("Chestburster!", "THU_Chestburster_SuccessMessage".Translate(pawn?.Label, pawn?.gender.GetPossessive()), LetterDefOf.ThreatBig, chestburster);
             

@@ -20,7 +20,7 @@
         <taleOnVisible>IllnessRevealed</taleOnVisible>
         <comps>
             <li Class="HediffCompProperties_SeverityPerDay">
-                <severityPerDay>24</severityPerDay>
+                <severityPerDay>96</severityPerDay>
             </li>
         </comps>
 

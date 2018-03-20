@@ -4,7 +4,7 @@
     <ThingDef ParentName="THU_XenomorphRaceBase">
         <defName>THU_XenomorphDrone</defName>
         <label>Xenomorph Drone</label>
-        <description>Drones are the backbone of the Xenomorph hive. Their bodies are much stronger than those of their humanlike hosts. The first Xenomorph encountered on record was born in 2122 on the commercial towing vessel Nostromo, property of the Weyland-Yutani Corporation.
+        <description>Drones are the backbone of the Xenomorph hive. Their bodies are much stronger than those of the humanlike hosts from which they have spawned. The first Xenomorph encountered on record was born in 2122 on the commercial towing vessel Nostromo, property of the Weyland-Yutani Corporation.
         </description>
         <statBases>
             <MoveSpeed>6</MoveSpeed>

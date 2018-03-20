@@ -32,9 +32,9 @@
     <FactionDef ParentName="THU_HiddenFaction">
         <defName>THU_Xenomorph</defName>
         <label>Xenomorph</label>
+        <fixedName>a xenomorph hive</fixedName>
         <description>"You still don't understand what you're dealing with, do you? The perfect organism. Its structural perfection is matched only by its hostility." ―Ash </description>
         <pawnsPlural>Xenomorphs</pawnsPlural>
-        <fixedName>Unknown</fixedName>
         <pawnGroupMakers>
             <li><kindDef>Normal</kindDef>
                 <options>
