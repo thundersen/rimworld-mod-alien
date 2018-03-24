@@ -1,5 +1,4 @@
-﻿using System;
-using RimWorld;
+﻿using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -8,29 +7,53 @@ namespace Alien
 {
     public class ChestbursterPawn : Pawn
     {
+        private bool isInHidingPlace;
+        
         private bool ishidden;
 
         private long ticksSinceBorn;
+        
+        
+        public void HideInHidingPlace()
+        {
+            isInHidingPlace = true;
+            
+            //ToDo: stop stargin jobs; just despawn, destroy or whatever and wait until xeno can be spawned
+            //Or: Just schedule the xenomorph and then destroy
+            
+            
+            Destroy();
+            Messages.Message("Chestburster is hiding now and can't be found before transforming".Translate(),
+                MessageTypeDefOf.NegativeEvent);
+        }
         
         public override void Tick()
         {
             base.Tick();
 
-            var canHideNow = CanHide();
-            
-            if (ishidden && !canHideNow)
-                Log.Message("Chestburster was discovered");
-            else if (!ishidden && canHideNow)
-                Log.Message("Chestburster is hiding now");
-            
-            ishidden = canHideNow;
+            DecideVisibilityForPlayer();
 
             ticksSinceBorn++;
 
             if (ticksSinceBorn > 1000 && Rand.Value < .001f)
                 TransformIntoXenomorph();
         }
-        
+
+        private void DecideVisibilityForPlayer()
+        {
+            if (isInHidingPlace)
+                return;
+
+            var canHideNow = false;//  IsOutOfSight();
+
+            if (ishidden && !canHideNow)
+                Log.Message("Chestburster was discovered");
+            else if (!ishidden && canHideNow)
+                Log.Message("Chestburster is hiding now");
+
+            ishidden = canHideNow;
+        }
+
         private void TransformIntoXenomorph()
         {
             SpawnXenomorph();
@@ -72,7 +95,7 @@ namespace Alien
                 base.Draw();
         }
         
-        private bool CanHide()
+        private bool IsOutOfSight()
         {
             const int maxDistance = 5;
             var anythingThatPreventsHiding = GenClosest.ClosestThingReachable(Position, MapHeld, ThingRequest.ForGroup(ThingRequestGroup.Pawn), PathEndMode.OnCell, TraverseParms.For(this, Danger.Deadly, TraverseMode.PassDoors), maxDistance, PreventsHiding);

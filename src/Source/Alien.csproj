@@ -51,10 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap.cs" />
+      <Compile Include="ChestbursterGoIntoHidingJobDriver.cs"/>
+      <Compile Include="ChestbursterJobGiver.cs"/>
       <Compile Include="ChestbursterPawn.cs"/>
       <Compile Include="FaceHuggedDamageWorker.cs"/>
       <Compile Include="FaceHuggedHediff.cs"/>
-      <Compile Include="HediffDefOf.cs"/>
+      <Compile Include="XenoLifecycle.cs"/>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">
