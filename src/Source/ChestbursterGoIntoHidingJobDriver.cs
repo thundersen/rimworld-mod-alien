@@ -14,7 +14,7 @@ namespace Alien
                 {
                     atomicWithPrevious = true,
                     defaultCompleteMode = ToilCompleteMode.Instant,
-                    initAction = () => (pawn as ChestbursterPawn)?.HideInHidingPlace()
+                    initAction = () => XenoLifecycle.HideChestburster(pawn)
                 });
         }
         
