@@ -55,6 +55,7 @@
       <Compile Include="ChestbursterGoIntoHidingJobDriver.cs"/>
       <Compile Include="ChestbursterJobGiver.cs"/>
       <Compile Include="ChestbursterPawn.cs"/>
+      <Compile Include="EggBuilding.cs"/>
       <Compile Include="FaceHuggedDamageWorker.cs"/>
       <Compile Include="FaceHuggedHediff.cs"/>
       <Compile Include="GameTime.cs"/>

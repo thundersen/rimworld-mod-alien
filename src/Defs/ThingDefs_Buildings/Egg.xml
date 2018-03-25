@@ -13,7 +13,8 @@
         <filthLeaving>BuildingRubble</filthLeaving>
     </ThingDef>
 
-    <ThingDef ParentName="THU_XenoBuildingBase">
+    <ThingDef Name="THU_XenoEgg" ParentName="THU_XenoBuildingBase">
+        <thingClass>Alien.EggBuilding</thingClass>
         <defName>THU_XenoEgg</defName>
         <label>xeno egg</label>
         <description>What is this?</description>
@@ -39,11 +40,21 @@
         </building>
         <graphicData>
             <texPath>Egg</texPath>
+            <color>(30,30,30)</color>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(1,1)</drawSize>
             <damageData>
                 <enabled>false</enabled>
             </damageData>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="THU_XenoEgg">
+        <thingClass>Building</thingClass>
+        <defName>THU_XenoEggHatched</defName>
+        <label>xeno egg (empty)</label>
+        <graphicData>
+            <texPath>Egg_open</texPath>
         </graphicData>
     </ThingDef>
 

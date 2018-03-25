@@ -63,7 +63,7 @@ namespace Alien
             Find.LetterStack.ReceiveLetter("XENOMORPH!", "", LetterDefOf.ThreatBig, xenomorph);
         }
 
-        private static Pawn SpawnXenoPawn(string pawnKindDefName, IntVec3 position, Map map)
+        public static Pawn SpawnXenoPawn(string pawnKindDefName, IntVec3 position, Map map)
         {
             var pawn = CreateXenoPawn(pawnKindDefName);
             pawn.Position = position;
