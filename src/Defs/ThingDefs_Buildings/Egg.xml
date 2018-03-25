@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef Name="THU_XenoBuildingBase" Abstract="True">
+        <category>Building</category>
+        <thingClass>Building</thingClass>
+        <soundImpactDefault>BulletImpactGround</soundImpactDefault>
+        <selectable>true</selectable>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+        <repairEffect>Repair</repairEffect>
+        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+        <filthLeaving>BuildingRubble</filthLeaving>
+    </ThingDef>
+
+    <ThingDef ParentName="THU_XenoBuildingBase">
+        <defName>THU_XenoEgg</defName>
+        <label>xeno egg</label>
+        <description>What is this?</description>
+        <altitudeLayer>Building</altitudeLayer>
+        <pathCost>1</pathCost>
+        <blockWind>false</blockWind>
+        <passability>Standable</passability>
+        <fillPercent>0.1</fillPercent>
+        <size>(1,1)</size>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <Beauty>-100</Beauty>
+        </statBases>
+        <tickerType>Normal</tickerType>
+        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+        <repairEffect>ConstructDirt</repairEffect>
+        <forceDebugSpawnable>true</forceDebugSpawnable>
+        <building>
+            <repairable>false</repairable>
+            <claimable>false</claimable>
+            <roofCollapseDamageMultiplier>0.2</roofCollapseDamageMultiplier>
+        </building>
+        <graphicData>
+            <texPath>Egg</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1,1)</drawSize>
+            <damageData>
+                <enabled>false</enabled>
+            </damageData>
+        </graphicData>
+    </ThingDef>
+
+</Defs>
