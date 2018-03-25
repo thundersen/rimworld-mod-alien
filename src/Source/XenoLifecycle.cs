@@ -9,7 +9,7 @@ namespace Alien
     {
         private static XenoLifecycle singleton;
         
-        private readonly List<SpawnXenoCommand> scheduledSpawns = new List<SpawnXenoCommand>();
+        private readonly List<ChestbursterPawn> chestbursters = new List<ChestbursterPawn>();
 
         public static XenoLifecycle Instance()
         {
@@ -24,64 +24,41 @@ namespace Alien
 
         public override void Tick()
         {
-            if (scheduledSpawns.Count == 0) return;
+            if (chestbursters.Count == 0) return;
 
-            scheduledSpawns.Where(s => s.atTick <= Find.TickManager.TicksGame).ToList()
-                .ForEach(SpawnXenomorph); 
+            chestbursters.Where(cb => cb.SpawnXenoAtTick <= Find.TickManager.TicksGame).ToList()
+                .ForEach(SpawnXenomorph);
         }
 
         public void SpawnChestburster(Pawn infectedPawn)
         {
-            var chestburster = SpawnXenoPawn("THU_Chestburster", infectedPawn.Corpse.Position, infectedPawn.Corpse.Map);
+            var chestburster = SpawnXenoPawn("THU_Chestburster", infectedPawn.Corpse.Position, infectedPawn.Corpse.Map) as ChestbursterPawn;
             
-            ScheduleXenoSpawn(chestburster);
+            if (chestburster == null)
+                throw new AlienException("Spawned chestburster is not of class " + nameof(ChestbursterPawn));
             
             Find.LetterStack.ReceiveLetter("Chestburster!",
-                "THU_Chestburster_SuccessMessage".Translate(infectedPawn?.Label, infectedPawn?.gender.GetPossessive()),
+                "THU_Chestburster_SuccessMessage".Translate(infectedPawn.Label, infectedPawn.gender.GetPossessive()),
                 LetterDefOf.ThreatBig, chestburster);
         }
 
-        public static void HideChestburster(Pawn chestburster)
+        // called from chestburster to make sure they are also registered when debug-spawned
+        public void Register(ChestbursterPawn chestburster)
         {
-            chestburster.Destroy();
-
-            Messages.Message("Chestburster is hiding now and can't be found before transforming".Translate(),
-                MessageTypeDefOf.NegativeEvent);
-        }
-        
-        private class SpawnXenoCommand
-        {
-            public IntVec3 position;
-            public int atTick;
-            public Map map;
-            public Pawn chestburster;
-        }
-        
-        private void ScheduleXenoSpawn(Pawn chestburster)
-        {
-            var spawn = new SpawnXenoCommand
-            {
-                atTick = GameTime.RandomTickNextNight(Find.TickManager.TicksGame, GenLocalDate.HourOfDay(this)),
-                position = chestburster.Position,
-                map = chestburster.Map,
-                chestburster = chestburster
-            };
-
-            scheduledSpawns.Add(spawn);
-
-            Log.Message("Will spawn xeno at " + spawn.atTick + " (now its " + Find.TickManager.TicksGame + ")");
+            if (!chestbursters.Contains(chestburster))
+                chestbursters.Add(chestburster);
         }
 
-        private void SpawnXenomorph(SpawnXenoCommand spawn)
+        private void SpawnXenomorph(ChestbursterPawn chestburster)
         {
-            Log.Message("Spawning xeno at " + Find.TickManager.TicksGame + " (was scheduled for " + spawn.atTick + ")");
+            var spawnPosition = chestburster.FindXenoSpawnPosition();
             
-            var xenomorph = SpawnXenoPawn("THU_XenomorphDrone", spawn.position, spawn.map);
-
-            scheduledSpawns.Remove(spawn);
+            var xenomorph = SpawnXenoPawn("THU_XenomorphDrone", spawnPosition, chestburster.SpawnXenoOnMap);
             
-            if (!spawn.chestburster.Destroyed)
-                spawn.chestburster.Destroy();
+            if (!chestburster.Destroyed)
+                chestburster.Destroy();
+
+            chestbursters.Remove(chestburster);
             
             Find.LetterStack.ReceiveLetter("XENOMORPH!", "", LetterDefOf.ThreatBig, xenomorph);
         }

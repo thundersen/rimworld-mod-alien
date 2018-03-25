@@ -3,6 +3,7 @@
 
     <ThingDef ParentName="THU_XenomorphRaceBase">
         <defName>THU_Chestburster</defName>
+        <thingClass>Alien.ChestbursterPawn</thingClass>
         <label>Chestburster</label>
         <description>Chestbursters are planted into host bodies by facehuggers. After a few days they kill the host by bursting through its chest and will seek a hiding place where they rapidly grow into a fully developed Xenomorph.
         </description>

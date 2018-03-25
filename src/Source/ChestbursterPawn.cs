@@ -7,105 +7,67 @@ namespace Alien
 {
     public class ChestbursterPawn : Pawn
     {
-        private bool isInHidingPlace;
+        private Map mapLastSeen;
+        private bool hasDisappeared;
         
-        private bool ishidden;
+        public int  SpawnXenoAtTick { get; }
+        public Map  SpawnXenoOnMap => Map ?? mapLastSeen;
 
-        private long ticksSinceBorn;
-        
-        
-        public void HideInHidingPlace()
+
+        public ChestbursterPawn()
         {
-            isInHidingPlace = true;
-            
-            //ToDo: stop stargin jobs; just despawn, destroy or whatever and wait until xeno can be spawned
-            //Or: Just schedule the xenomorph and then destroy
-            
-            
-            Destroy();
-            Messages.Message("Chestburster is hiding now and can't be found before transforming".Translate(),
-                MessageTypeDefOf.NegativeEvent);
-        }
-        
-        public override void Tick()
-        {
-            base.Tick();
+            SpawnXenoAtTick =
+                Find.TickManager.TicksGame +
+                2500; //GameTime.RandomTickNextNight(Find.TickManager.TicksGame, GenLocalDate.HourOfDay(this)),
 
-            DecideVisibilityForPlayer();
-
-            ticksSinceBorn++;
-
-            if (ticksSinceBorn > 1000 && Rand.Value < .001f)
-                TransformIntoXenomorph();
+            Log.Message("Will spawn xeno at " + SpawnXenoAtTick + " (now its " + Find.TickManager.TicksGame + ")");
+            
+            XenoLifecycle.Instance().Register(this);
         }
 
-        private void DecideVisibilityForPlayer()
-        {
-            if (isInHidingPlace)
-                return;
-
-            var canHideNow = false;//  IsOutOfSight();
-
-            if (ishidden && !canHideNow)
-                Log.Message("Chestburster was discovered");
-            else if (!ishidden && canHideNow)
-                Log.Message("Chestburster is hiding now");
-
-            ishidden = canHideNow;
-        }
-
-        private void TransformIntoXenomorph()
-        {
-            SpawnXenomorph();
-
-            Destroy();
-        }
-
-        private void SpawnXenomorph()
-        {
-            var xenomorph = CreateXenomorph();
-            xenomorph.Position = Position;
-            xenomorph.SpawnSetup(Map, false);
-        }
-
-        private static Pawn CreateXenomorph()
-        {
-            var faction = FactionUtility.DefaultFactionFrom(FactionDef.Named("THU_Xenomorph"));
-            
-            var pawnKindDef = PawnKindDef.Named("THU_XenomorphDrone");
-
-            var request = new PawnGenerationRequest(pawnKindDef, newborn: true, faction: faction);
-            
-            var xenomorph = PawnGenerator.GeneratePawn(request);
-            
-            Find.LetterStack.ReceiveLetter("XENOMORPH!", "", LetterDefOf.ThreatBig, xenomorph);
-            
-            return xenomorph;
-        }
-        
         public override void DrawAt(Vector3 drawLoc, bool flip = false)
         {
-            if (!ishidden)
+            if (!IsOutOfSight())
                 base.DrawAt(drawLoc, flip);
         }
 
         public override void Draw()
         {
-            if (!ishidden)
+            if (!IsOutOfSight())
                 base.Draw();
         }
         
+        
+        public IntVec3 FindXenoSpawnPosition()
+        {
+            return hasDisappeared
+                ? CellFinderLoose.RandomCellWith(p => p.DistanceTo(Position) < 30, mapLastSeen) 
+                : Position;
+        }
+        
+        public void DisappearInHidingPlace()
+        {
+            mapLastSeen = Map;
+            
+            Destroy();
+            
+            hasDisappeared = true;
+
+            Messages.Message("Chestburster is hiding now and can't be found before transforming".Translate(),
+                MessageTypeDefOf.NegativeEvent);
+        }
+
         private bool IsOutOfSight()
         {
             const int maxDistance = 5;
-            var anythingThatPreventsHiding = GenClosest.ClosestThingReachable(Position, MapHeld, ThingRequest.ForGroup(ThingRequestGroup.Pawn), PathEndMode.OnCell, TraverseParms.For(this, Danger.Deadly, TraverseMode.PassDoors), maxDistance, PreventsHiding);
+            var anythingThatPreventsHiding = GenClosest.ClosestThingReachable(Position, Map, ThingRequest.ForGroup(ThingRequestGroup.Pawn), PathEndMode.OnCell, TraverseParms.For(this, Danger.Deadly, TraverseMode.PassDoors), maxDistance, t => PreventsHiding(t, this));
 
             return anythingThatPreventsHiding == null;
         }
 
-        private bool PreventsHiding(Thing other)
+        private static bool PreventsHiding(Thing other, Thing chestburster)
         {
-            if (other == this || other.Faction?.def?.defName == Faction?.def?.defName)
+            if (other == chestburster || other.Faction?.def?.defName == chestburster.Faction?.def?.defName)
             {
                 return false;
             }
