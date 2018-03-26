@@ -13,29 +13,59 @@
     </HediffDef>
     
     <HediffDef ParentName="InfectionBase">
-        <defName>THU_FaceHugged</defName>
-        <hediffClass>Alien.FaceHuggedHediff</hediffClass>
+        <defName>THU_XenoLarva</defName>
+        <hediffClass>Alien.XenoLarvaHediff</hediffClass>
         <minSeverity>0.001</minSeverity>
         <maxSeverity>1</maxSeverity>
         <taleOnVisible>IllnessRevealed</taleOnVisible>
         <comps>
             <li Class="HediffCompProperties_SeverityPerDay">
-                <severityPerDay>96</severityPerDay>
+                <severityPerDay>2</severityPerDay>
+                <!--<severityPerDay>24</severityPerDay>-->
             </li>
         </comps>
 
-        <label>facehugger</label>
+        <label>alien larva</label>
         <scenarioCanAdd>true</scenarioCanAdd>
         <tendable>false</tendable>
 
         <stages>
             <li>
-                <label>hugging</label>
+                <label>developing</label>
+                <hungerRateFactorOffset>2</hungerRateFactorOffset>
                 <capMods>
                     <li>
                         <capacity>Moving</capacity>
-                        <offset>-1.0</offset>
+                        <setMax>0</setMax>
                     </li>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <setMax>0</setMax>
+                    </li>
+                    <li>
+                        <capacity>Sight</capacity>
+                        <setMax>0</setMax>
+                    </li>
+                    <li>
+                        <capacity>Hearing</capacity>
+                        <setMax>0</setMax>
+                    </li>
+                    <li>
+                        <capacity>Eating</capacity>
+                        <setMax>0</setMax>
+                    </li>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <setMax>0.1</setMax>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <label>improving? really?</label>
+                <minSeverity>0.8</minSeverity>
+                <hungerRateFactorOffset>2</hungerRateFactorOffset>
+                <vomitMtbDays>0.2</vomitMtbDays>
+                <capMods>
                     <li>
                         <capacity>Consciousness</capacity>
                         <offset>-0.1</offset>
@@ -43,7 +73,7 @@
                 </capMods>
             </li>
             <li>
-                <label>terminal</label>
+                <label>hatched</label>
                 <minSeverity>1</minSeverity>
                 <capMods>
                     <li>

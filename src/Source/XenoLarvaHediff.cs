@@ -2,7 +2,7 @@
 
 namespace Alien
 {
-    class FaceHuggedHediff : HediffWithComps
+    class XenoLarvaHediff : HediffWithComps
     {
         public override void Notify_PawnDied()
         {

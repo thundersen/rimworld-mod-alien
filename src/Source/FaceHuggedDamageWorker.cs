@@ -17,7 +17,7 @@ namespace Alien
         {
             var hitPawn = victim as Pawn;
 
-            var hediff = HediffMaker.MakeHediff(HediffDef.Named("THU_FaceHugged"), hitPawn);
+            var hediff = HediffMaker.MakeHediff(HediffDef.Named("THU_XenoLarva"), hitPawn);
 
             hitPawn?.health?.AddHediff(hediff);
 

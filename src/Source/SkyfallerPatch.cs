@@ -29,7 +29,7 @@ namespace Alien
 
             if (spaceRefugee == null || !IsRandomSuccess()) return;
 
-            var hediff = HediffMaker.MakeHediff(HediffDef.Named("THU_FaceHugged"), spaceRefugee);
+            var hediff = HediffMaker.MakeHediff(HediffDef.Named("THU_XenoLarva"), spaceRefugee);
 
             spaceRefugee.health?.AddHediff(hediff);
             
