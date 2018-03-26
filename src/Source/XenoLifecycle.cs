@@ -51,16 +51,19 @@ namespace Alien
 
         private void SpawnXenomorph(ChestbursterPawn chestburster)
         {
-            var spawnPosition = chestburster.FindXenoSpawnPosition();
-            
-            var xenomorph = SpawnXenoPawn("THU_XenomorphDrone", spawnPosition, chestburster.SpawnXenoOnMap);
-            
-            if (!chestburster.Destroyed)
-                chestburster.Destroy();
+            if (!chestburster.Dead)
+            {
+                var spawnPosition = chestburster.FindXenoSpawnPosition();
+
+                var xenomorph = SpawnXenoPawn("THU_XenomorphDrone", spawnPosition, chestburster.SpawnXenoOnMap);
+
+                if (!chestburster.Destroyed)
+                    chestburster.Destroy();
+
+                Find.LetterStack.ReceiveLetter("XENOMORPH!", "", LetterDefOf.ThreatBig, xenomorph);
+            }
 
             chestbursters.Remove(chestburster);
-            
-            Find.LetterStack.ReceiveLetter("XENOMORPH!", "", LetterDefOf.ThreatBig, xenomorph);
         }
 
         public static Pawn SpawnXenoPawn(string pawnKindDefName, IntVec3 position, Map map)
