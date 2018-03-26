@@ -7,12 +7,17 @@ namespace Alien
     public class EggBuilding : Building
     {
         private const int eggRadius = 2;
+        private const int warmupTicks = 500;
+
+        private int lifespanTicks;
         
         public override void Tick()
         {
             base.Tick();
 
-            if (HasTargetCloseBy())
+            lifespanTicks++;
+
+            if (lifespanTicks > warmupTicks && HasTargetCloseBy())
                 Hatch();
         }
 
