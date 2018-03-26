@@ -59,6 +59,7 @@
       <Compile Include="FaceHuggedDamageWorker.cs"/>
       <Compile Include="FaceHuggedHediff.cs"/>
       <Compile Include="GameTime.cs"/>
+      <Compile Include="ShipChunk.cs"/>
       <Compile Include="XenoLifecycle.cs"/>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

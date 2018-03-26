@@ -4,4 +4,6 @@
     <THU_FaceHugged_SuccessMessage>{0} was caught by a facehugger.</THU_FaceHugged_SuccessMessage>
     <THU_Chestburster_SuccessMessage>As {0} screams in agony, {1} chest burst open and out pops a disgusting little snakelike creature.</THU_Chestburster_SuccessMessage>
     <THU_Chestburster_InHidingPlace>The chestburster has gone into hiding. Don't bother looking for it. You will hear from it soon enough...</THU_Chestburster_InHidingPlace>
+    <THU_LetterLabel_ShipPart>Strange ship part</THU_LetterLabel_ShipPart>
+    <THU_LetterText_ShipPart>{0} is freaked out by this ship part. It almost feels like something is alive in there.</THU_LetterText_ShipPart>
 </LanguageData>
