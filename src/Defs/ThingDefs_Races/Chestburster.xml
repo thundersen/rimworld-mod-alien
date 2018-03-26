@@ -5,7 +5,7 @@
         <defName>THU_Chestburster</defName>
         <thingClass>Alien.ChestbursterPawn</thingClass>
         <label>Chestburster</label>
-        <description>Chestbursters are planted into host bodies by facehuggers. After a few days they kill the host by bursting through its chest and will seek a hiding place where they rapidly grow into a fully developed Xenomorph.
+        <description>Chestbursters are planted into host bodies by facehuggers. After a few days they kill the host by bursting through its chest and seek a hiding place where they rapidly grow into a fully developed Xenomorph.
         </description>
         <statBases>
             <MoveSpeed>8</MoveSpeed>
@@ -16,7 +16,7 @@
             <li>
                 <verbClass>Verb_MeleeAttack</verbClass>
                 <defaultCooldownTime>2</defaultCooldownTime>
-                <meleeDamageBaseAmount>30</meleeDamageBaseAmount>
+                <meleeDamageBaseAmount>20</meleeDamageBaseAmount>
                 <meleeDamageDef>Bite</meleeDamageDef>
                 <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
             </li>
