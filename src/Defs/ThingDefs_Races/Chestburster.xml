@@ -12,6 +12,14 @@
             <ArmorRating_Blunt>0.02</ArmorRating_Blunt>
             <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
         </statBases>
+        <race>
+            <baseBodySize>1.0</baseBodySize>
+            <baseHealthScale>1.2</baseHealthScale>
+            <thinkTreeMain>THU_Chestburster</thinkTreeMain>
+            <leatherLabel>chestburster chitin</leatherLabel>
+            <leatherMarketValueFactor>10</leatherMarketValueFactor>
+            <leatherColor>200,200,100</leatherColor>
+        </race>
         <verbs>
             <li>
                 <verbClass>Verb_MeleeAttack</verbClass>
@@ -21,10 +29,5 @@
                 <linkedBodyPartsGroup>Mouth</linkedBodyPartsGroup>
             </li>
         </verbs>
-        <race>
-            <baseBodySize>1.0</baseBodySize>
-            <baseHealthScale>1.2</baseHealthScale>
-            <thinkTreeMain>THU_Chestburster</thinkTreeMain>            
-        </race>
     </ThingDef>
 </Defs>

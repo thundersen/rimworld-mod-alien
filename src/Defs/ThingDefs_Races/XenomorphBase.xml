@@ -9,7 +9,7 @@
             <ComfyTemperatureMin>-40</ComfyTemperatureMin>
             <ComfyTemperatureMax>80</ComfyTemperatureMax>
             <MeatAmount>0</MeatAmount>
-            <LeatherAmount>0</LeatherAmount>
+            <LeatherAmount>50</LeatherAmount>
         </statBases>
         <race>
             <thinkTreeMain>THU_Xenomorph</thinkTreeMain>
@@ -20,7 +20,22 @@
             <useMeatFrom>GrizzlyBear</useMeatFrom>
             <needsRest>false</needsRest>
             <hasGenders>false</hasGenders>
-            <!-- <predator>true</predator> -->
+            <manhunterOnDamageChance>1</manhunterOnDamageChance>
+
+            <leatherColor>(30,30,30)</leatherColor>
+            <leatherLabel>xenomorph chitin</leatherLabel>
+            <leatherCommonalityFactor>0.01</leatherCommonalityFactor>
+            <leatherStatFactors>
+                <ArmorRating_Blunt>3.5</ArmorRating_Blunt>
+                <ArmorRating_Electric>4.0</ArmorRating_Electric>
+                <ArmorRating_Heat>2.0</ArmorRating_Heat>
+                <ArmorRating_Sharp>4.0</ArmorRating_Sharp>
+                
+                <Insulation_Cold>1.1</Insulation_Cold>
+                <Insulation_Heat>1.1</Insulation_Heat>
+            </leatherStatFactors>
+            <leatherMarketValueFactor>7.5</leatherMarketValueFactor>
+            
             <lifeStageAges>
                 <li>
                     <def>AnimalAdult</def>

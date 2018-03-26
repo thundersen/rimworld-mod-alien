@@ -10,6 +10,29 @@
             <ArmorRating_Blunt>0.02</ArmorRating_Blunt>
             <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
         </statBases>
+        <race>
+            <baseBodySize>0.2</baseBodySize>
+            <baseHealthScale>0.5</baseHealthScale>
+            <leatherLabel>facehugger chitin</leatherLabel>
+            <leatherMarketValueFactor>10</leatherMarketValueFactor>
+            <leatherColor>200,200,100</leatherColor>
+
+            <!-- TODO -->
+            <body>THU_Xenomorph</body>
+            <lifeExpectancy>10</lifeExpectancy>
+
+            <!-- TODO: lifeStageAges with higher pitched sounds 
+            <lifeStageAges>
+                <li>
+                    <def>AnimalAdult</def>
+                    <minAge>0</minAge>
+                    <soundWounded>THU_Xenomorph_Pain</soundWounded>
+                    <soundDeath>THU_Xenomorph_Death</soundDeath>
+                    <soundCall>THU_Xenomorph_Call</soundCall>
+                    <soundAngry>THU_Xenomorph_Angry</soundAngry>
+                </li>
+            </lifeStageAges> -->
+        </race>
         <verbs>
             <!-- cut with leg-->
             <!-- cut with tail-->
@@ -30,35 +53,15 @@
                 </surpriseAttack>
             </li>
             <!--
-            <li>
-                <verbClass>Verb_MeleeAttack</verbClass>
-                <defaultCooldownTime>2.0</defaultCooldownTime>
-                <meleeDamageBaseAmount>20</meleeDamageBaseAmount>
-                <meleeDamageDef>Cut</meleeDamageDef>
-                <linkedBodyPartsGroup>THU_XenomorphTail</linkedBodyPartsGroup>
-            </li>
-            -->
+        <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <defaultCooldownTime>2.0</defaultCooldownTime>
+        <meleeDamageBaseAmount>20</meleeDamageBaseAmount>
+        <meleeDamageDef>Cut</meleeDamageDef>
+        <linkedBodyPartsGroup>THU_XenomorphTail</linkedBodyPartsGroup>
+    </li>
+        -->
         </verbs>
-        <race>
-            <baseBodySize>0.5</baseBodySize>
-            <baseHealthScale>0.5</baseHealthScale>
-
-            <!-- TODO -->
-            <body>THU_Xenomorph</body>
-            <lifeExpectancy>10</lifeExpectancy>
-
-            <!-- TODO: lifeStageAges with higher pitched sounds 
-            <lifeStageAges>
-                <li>
-                    <def>AnimalAdult</def>
-                    <minAge>0</minAge>
-                    <soundWounded>THU_Xenomorph_Pain</soundWounded>
-                    <soundDeath>THU_Xenomorph_Death</soundDeath>
-                    <soundCall>THU_Xenomorph_Call</soundCall>
-                    <soundAngry>THU_Xenomorph_Angry</soundAngry>
-                </li>
-            </lifeStageAges> -->
-        </race>
 
     </ThingDef>
 </Defs>

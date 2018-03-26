@@ -11,6 +11,10 @@
             <ArmorRating_Blunt>0.02</ArmorRating_Blunt>
             <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
         </statBases>
+        <race>
+            <baseBodySize>2.0</baseBodySize>
+            <baseHealthScale>1.2</baseHealthScale>
+        </race>
         <verbs>
             <li>
                 <verbClass>Verb_MeleeAttack</verbClass>
@@ -49,9 +53,5 @@
                 <linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
             </li>
         </verbs>
-        <race>
-            <baseBodySize>2.0</baseBodySize>
-            <baseHealthScale>1.2</baseHealthScale>
-        </race>
     </ThingDef>
 </Defs>
